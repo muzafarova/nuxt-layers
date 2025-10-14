@@ -1,0 +1,8 @@
+{
+  "name": "nuxt-layers",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r build"
+  }
+}
