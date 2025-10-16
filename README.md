@@ -6,15 +6,16 @@ A multi-layer Nuxt application demonstrating layer inheritance and component sha
 
 ```
 nuxt-layers/
-├── packages/                # Workspace packages
-│   ├── ui/                 # UI layer (shared components, styling, configuration)
-│   │   ├── components/
-│   │   │   └── BaseButton.vue # Reusable button component
-│   │   ├── assets/css/
-│   │   │   └── main.css    # Tailwind CSS directives
-│   │   ├── nuxt.config.ts  # UI layer with Tailwind + PrimeVue
-│   │   ├── tailwind.config.js # Tailwind configuration
-│   │   └── package.json    # UI dependencies
+├── base/                    # Base layers
+│   └── ui/                 # UI layer (shared components, styling, configuration)
+│       ├── components/
+│       │   └── BaseButton.vue # Reusable button component
+│       ├── assets/css/
+│       │   └── main.css    # Tailwind CSS directives
+│       ├── nuxt.config.ts  # UI layer with Tailwind + PrimeVue
+│       ├── tailwind.config.js # Tailwind configuration
+│       └── package.json    # UI dependencies
+├── apps/                    # Applications
 │   ├── app1/               # Client application
 │   │   ├── app/
 │   │   │   └── app.vue     # App1 using UI layer
@@ -30,7 +31,7 @@ nuxt-layers/
 
 ## Layer Architecture
 
-### UI Layer (`/packages/ui`)
+### UI Layer (`/base/ui`)
 The foundational layer providing shared styling and components:
 - **Tailwind CSS 3** - Utility-first CSS framework with custom brand colors
 - **PrimeVue** - Component library with Aura theme
@@ -42,12 +43,12 @@ The foundational layer providing shared styling and components:
 ### Applications
 Both applications extend the UI layer and inherit all its features:
 
-1. **App1** (`/packages/app1`) - Client application
+1. **App1** (`/apps/app1`) - Client application
    - Extends UI layer configuration
    - Demonstrates component usage with custom styling
    - Runs on default port (3000)
 
-2. **App2** (`/packages/app2`) - Dashboard application
+2. **App2** (`/apps/app2`) - Dashboard application
    - Extends UI layer configuration
    - Uses Tailwind classes and PrimeVue components
    - Runs on default port (3000)
@@ -76,7 +77,7 @@ pnpm install
 ### App1 (Client Application)
 ```bash
 # Navigate to app1 directory
-cd packages/app1
+cd apps/app1
 
 # Run development server
 pnpm run dev  # http://localhost:3001
@@ -85,13 +86,13 @@ pnpm run dev  # http://localhost:3001
 ### App2 (Dashboard Application)
 ```bash
 # Navigate to app2 directory
-cd packages/app2
+cd apps/app2
 
 # Run development server
 pnpm run dev  # http://localhost:3002
 ```
 
-> **Note**: The UI layer (`/packages/ui`) doesn't need to be run independently as it's a shared layer that both applications extend. It provides Tailwind CSS configuration, PrimeVue setup, fonts, icons, and reusable components that are automatically available in both apps.
+> **Note**: The UI layer (`/base/ui`) doesn't need to be run independently as it's a shared layer that both applications extend. It provides Tailwind CSS configuration, PrimeVue setup, fonts, icons, and reusable components that are automatically available in both apps.
 
 ## What Each App Demonstrates
 

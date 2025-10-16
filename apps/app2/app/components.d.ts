@@ -9,7 +9,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     PrimeButton: typeof import('primevue/button')['default']
-    PrimeFloatLabel: typeof import('primevue/floatlabel')['default']
     PrimeIftaLabel: typeof import('primevue/iftalabel')['default']
     PrimeInputText: typeof import('primevue/inputtext')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
